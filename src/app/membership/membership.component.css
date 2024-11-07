@@ -1,0 +1,66 @@
+.membership-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.membership-heading {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+}
+
+.benefits-list {
+    margin-top: 20px;
+}
+
+.benefit-item {
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+.benefit-item:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.benefit-item h3 {
+    font-size: 1.5rem;
+    color: #4a90e2;
+}
+
+.membership-plan-heading {
+    margin-top: 30px;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.membership-plan-description {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.buy-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+    background-color: #45a049;
+}

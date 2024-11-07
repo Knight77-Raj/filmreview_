@@ -1,0 +1,72 @@
+/* Common Styles */
+.container {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.review-card {
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Theme */
+.light-theme {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.light-theme .review-card {
+  background-color: #fff;
+  color: #333;
+}
+
+/* Dark Theme */
+.dark-theme {
+  background-color: #333;
+  color: #f9f9f9;
+}
+
+.dark-theme .review-card {
+  background-color: #444;
+  color: #f9f9f9;
+}
+
+/* Share Buttons Container */
+.share-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #555;
+  justify-content: flex-end;
+}
+
+/* Icon Styles */
+.share-buttons .whatsapp-icon,
+.share-buttons .instagram-icon {
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* WhatsApp Icon */
+.share-buttons .whatsapp-icon {
+  color: #25D366; /* WhatsApp green */
+}
+
+.share-buttons .whatsapp-icon:hover {
+  color: #1ebe57;
+  transform: scale(1.1);
+}
+
+/* Instagram Icon */
+.share-buttons .instagram-icon {
+  color: #E1306C; /* Instagram pink */
+}
+
+.share-buttons .instagram-icon:hover {
+  color: #d81a5b;
+  transform: scale(1.1);
+}

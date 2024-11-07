@@ -1,0 +1,52 @@
+<div class="search-container">
+    <div class="card">
+        <div class="input-group mb-3">
+            <input
+                type="text"
+                class="form-control rounded search-box"
+                placeholder="Search for the movie to review"
+                aria-label="Search"
+                [(ngModel)]="searchTerm"
+            />
+            <div class="input-group-append">
+                <button class="btn btn-primary m-2" style="height: 40px; line-height: 40px; padding: 0 40px" type="button" (click)="onSearch()">
+                    Search
+                </button>
+            </div>
+        </div>
+
+        <div *ngIf="movie" class="text-center">
+            <h3>{{ movie.Title }} ({{ movie.Year }})</h3>
+            <p><strong>IMDb Rating:</strong> {{ movie.imdbRating }}</p>
+            <p><strong>Plot:</strong> {{ movie.Plot }}</p>
+            <img [src]="movie.Poster" alt="{{ movie.Title }}" *ngIf="movie.Poster !== 'N/A'" class="img-fluid"> <br>
+            <div class="btn-container">
+                <button class="btn btn-primary"  *ngIf="this.authservice.isLoggedIn; else showPopup"  [routerLink]="['/reviewform', movie.Title]" (click)="login()">Review</button> 
+                <ng-template #showPopup>
+                    <button class="btn btn-primary" (click)="showLoginPopup()">Review</button>
+                  </ng-template>
+                <button class="btn btn-info" (click)="streaming()">Streaming Availaibilty</button>
+            </div>
+        </div>
+
+        <!-- Popup Overlay -->
+<div class="popup-overlay" *ngIf="showPopupMessage">
+    <div class="popup-content">
+      <p>Please sign up or log in to review this movie.</p>
+      <button class="btn btn-secondary" (click)="redirectToLogin()">Login</button>
+      <button class="btn btn-secondary" (click)="redirectToSignup()">Sign Up</button>
+      <button class="btn btn-light" (click)="closePopup()">Close</button>
+    </div>
+    </div>
+      <!-- Display movie streaming options after search -->
+      <div *ngIf="loading2" class="loading-message"><p>Checking...Please wait!</p></div>
+      <div *ngIf="streamingDetails">
+        <p style="text-align: center;">{{ streamingDetails }}</p>
+      </div>
+</div>
+</div>
+
+<br>
+<br>
+<app-latestmovies></app-latestmovies>
+<app-friend-review></app-friend-review> 

@@ -1,0 +1,471 @@
+/* Container for Movies Grid */
+.movies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.movie-item {
+  flex: 0 1 calc((100% - 60px) / 4); /* 4 items per row with 20px gap */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.movie-item img {
+  max-width: 100%;
+  height: 350px;
+  border-radius: 10px;
+}
+
+.movie-item h3 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.movie-item p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.movie-item button {
+  margin-top: 10px;
+  margin-right: 5px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #d2acac;
+  color: #fff;
+  cursor: pointer;
+}
+
+.movie-item button:hover {
+  background-color: #0056b3;
+}
+
+/* Quotes Section */
+.quotes-section {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.quotes-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.quotes-section li {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* Netflix Section */
+
+/* Common Styles */
+.container {
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.netflix-heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Light Theme */
+.light-theme {
+  background-color: #f9f9f9;
+  color: #444444;
+}
+
+.light-theme .card {
+  background-color: #ffffff;
+  color: #444444;
+}
+
+.light-theme .card-title {
+  color: #000;
+}
+
+.light-theme .card-text {
+  color: #555;
+}
+
+/* Dark Theme */
+.dark-theme {
+  background-color: #2c2c2c;  /* Dark background for the container */
+  color: #f1f1f1;  /* White text for the container */
+}
+
+.dark-theme .card {
+  background-color: #3b3b3b;  /* Dark gray background for cards */
+  color: #f1f1f1;  /* White text inside the cards */
+}
+
+.dark-theme .card-title {
+  color: #ffffff;  /* White color for the card title */
+}
+
+.dark-theme .card-text {
+  color: #f1f1f1;  /* White color for the card text */
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .col-md-4 {
+    margin-bottom: 20px;
+  }
+}
+
+
+/* Toggle Button */
+.toggle-button {
+  margin-top: 20px;
+}
+
+.toggle-button button {
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.toggle-button button:hover {
+  background-color: #218838;
+}
+
+/* latestmovies.component.css */
+.container {
+  margin-top: 20px;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  height: 300px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.9rem;
+}
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for 4 movies */
+  gap: 20px; /* Space between the movie boxes */
+  padding: 20px; /* Space around the grid */
+}
+
+.movie-box {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  display: flex; /* Enable flexbox */
+  flex-direction: column; /* Align children vertically */
+  justify-content: space-between; /* Distribute space evenly */
+  height: 430px; /* Set a fixed height for all movie boxes */
+  overflow: hidden; /* Prevent content overflow */
+}
+
+.movie-box:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.movie-box img {
+  width: 100%;
+  height: 280px; /* Set a fixed height for all images */
+  object-fit: cover; /* Ensure images cover the area without distorting */
+  border-radius: 8px; /* Rounded corners for images */
+  margin-bottom: 10px;
+}
+
+.movie-box h3 {
+  font-size: 18px;
+  margin: 10px 0; /* Add some margin for spacing */
+  color: #333;
+  flex-grow: 1; /* Allow the title to take remaining space */
+}
+
+.movie-box p {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0; /* Add some margin for spacing */
+}
+
+@media (max-width: 1200px) {
+  .movies-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 movies per row on smaller screens */
+  }
+}
+
+@media (max-width: 900px) {
+  .movies-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 movies per row on even smaller screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 movies per row for mobile screens */
+  }
+}
+
+@media (max-width: 400px) {
+  .movies-grid {
+    grid-template-columns: 1fr; /* 1 movie per row on very small screens */
+  }
+}
+/* latestmovies.component.css */
+/* latestmovies.component.css */
+.latest-movies-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.movies-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 movies per row */
+  gap: 20px;
+}
+
+.movie-card {
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.movie-card:hover {
+  transform: scale(1.02);
+}
+
+.movie-thumbnail {
+  width: 100%;
+  height: auto;
+}
+
+.movie-title {
+  font-size: 1.5rem;
+  color: black;
+  margin: 15px 0 10px;
+  text-align: left; /* Align titles to the left */
+  padding: 0 10px; /* Add padding for spacing */
+}
+
+.movie-excerpt {
+  font-size: 1rem;
+  color: #555;
+  padding: 0 10px;
+}
+
+.read-more-button {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 15px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.read-more-button:hover {
+  background: #0056b3;
+}
+
+.no-movies-message {
+  font-size: 1.2rem;
+  color: #888;
+}
+@media (max-width: 900px) {
+  .movies-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 movies per row on smaller screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .movies-list {
+    grid-template-columns: 1fr; /* 1 movie per row on extra small screens */
+  }
+}
+
+
+/* oscar winners */
+.oscar-winners-section {
+  text-align: center;
+}
+
+.oscar-winner-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: 450px; /* Adjust to your desired height */
+  overflow: hidden; /* Ensures content doesn't overflow the card */
+}
+
+.winner-image {
+  width: 100%;
+  height: 75%; /* Makes sure the image takes up the available height */
+  object-fit: cover; /* Ensures the image maintains its aspect ratio */;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+h5 {
+  margin: 10px 0;
+}
+
+/* netflix section */
+
+.latest-movie-container-v2 {
+  max-width: 1200px; /* Set a max width for the container */
+  margin-bottom: 150px; /* Center the container */
+  margin-top: auto;
+  padding: 20px; /* Add padding */
+  
+}
+
+.latest-movie-title {
+  text-align: center; /* Center the title */
+  margin-bottom: 20px; /* Add space below the title */
+}
+
+.movie-row-v2 {
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow wrapping to the next line */
+  justify-content: space-between; /* Space out the cards */
+  gap: 20px; /* Add gap between cards */
+}
+
+.movie-card-v2 {
+  background: #fff; /* White background for cards */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-decoration: none; /* Remove underline from links */
+  color: #333; /* Text color */
+  width: calc(25% - 15px); /* 4 cards in a row with spacing */
+  transition: transform 0.2s; /* Smooth transition for hover effect */
+  max-height: 500px;
+}
+
+.movie-card-v2:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+.movie-poster-v2 {
+  width: 100%; /* Make the image fill the card */
+  border-top-left-radius: 8px; /* Round top corners */
+  border-top-right-radius: 8px; /* Round top corners */
+}
+
+.movie-title-v2 {
+  padding: 10px; /* Add padding around the title */
+  font-size: 1.2rem; /* Adjust title size */
+  margin: 0; /* Remove default margin */
+}
+
+.movie-rating-v2, .movie-release-date-v2 {
+  padding: 0 10px 10px; /* Add padding for text */
+  margin: 0; /* Remove default margin */
+}
+
+.see-more-button-v2 {
+  display: block; /* Make it block level */
+  margin: 20px auto; /* Center the button */
+  padding: 10px 20px; /* Add padding */
+  background-color: #ff0000; /* Netflix red */
+  color: #fff; /* White text */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer on hover */
+  font-size: 1rem; /* Font size */
+  transition: background-color 0.3s; /* Transition effect */
+  margin-top: 100px;
+}
+
+.see-more-button-v2:hover {
+  background-color: #cc0000; /* Darker red on hover */
+}
+
+.netflixreview {
+  display: inline-block; /* Make it inline-block */
+  margin: 20px auto; /* Center the button */
+  padding: 10px 20px; /* Add padding for comfort */
+  background-color: #e4c25b; /* Netflix red color */
+  color: #fff; /* White text */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size */
+  text-align: center; /* Center the text */
+  transition: background-color 0.3s, transform 0.2s; /* Transition for background color and scale */
+  text-decoration: none; /* Remove underline for links */
+}
+
+.netflixreview:hover {
+  background-color: #4fcb48; /* Darker red on hover */
+  transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+.netflixreview:focus {
+  outline: none; /* Remove default focus outline */
+}
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin: 10px 0;
+  text-align: center;
+}

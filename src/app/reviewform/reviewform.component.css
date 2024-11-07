@@ -1,0 +1,15 @@
+.star-rating i {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+  }
+  
+  .star-rating i.selected {
+    color: gold;
+  }
+  
+  textarea {
+    width: 100%;
+    font-size: 1rem;
+  }
+  

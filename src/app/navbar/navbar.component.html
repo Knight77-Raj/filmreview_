@@ -1,0 +1,108 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark-fixed fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" routerLink="/search">MovieReviews</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">   
+        <li class="nav-item">
+          <a 
+            class="nav-link" 
+            [routerLink]="authService.isLoggedIn() ? '/reviewed' : null" 
+            (click)="handleAuthCheck('/reviewed')">
+            Reviewed
+          </a>
+        </li>
+        <li class="nav-item">
+          <a 
+            class="nav-link" 
+            [routerLink]="authService.isLoggedIn() ? '/watchlist' : null" 
+    
+            (click)="handleAuthCheck('/watchlist')">
+            Watchlist
+          </a>
+        </li>
+        <li class="nav-item">
+          <a 
+          class="nav-link" 
+          [routerLink]="authService.isLoggedIn() && authService.hasPremium ? '/recom' : null" 
+         
+          (click)="checkMembershipAccess()">
+          Recommendation
+          </a>
+        </li>
+
+           <!-- Conditionally show Sign Up tab if the user is not logged in -->
+           <li class="nav-item" *ngIf="!authService.isLoggedIn()">
+            <a class="nav-link" routerLink="/signup">Sign Up</a>
+          </li>
+
+
+        <!-- Account Button -->
+        <li class="nav-item dropdown" (click)="toggleAccountMenu($event)">
+          <ng-container *ngIf="authService.isLoggedIn(); else loggedOut">
+            <img *ngIf="profilePicture; else defaultIcon" [src]="profilePicture" alt="Profile Picture" class="profile-icon" (error)="profilePicture = 'path/to/default/icon.png'">
+          </ng-container>
+          <ng-template #defaultIcon>
+            <img src="assets\anshit.raj.png" alt="Default Icon" class="profile-icon">
+          </ng-template>
+          <ng-template #loggedOut>
+            <!-- <span>Account</span> -->
+            <img src="assets/user.png" alt="Default Icon" class="profile-icon">
+
+          </ng-template>
+<!-- Custom Alert Modal -->
+<div class="custom-alert-overlay" *ngIf="showCustomAlert">
+  <div class="custom-alert-box">
+    <button (click)="closeAlert()" class="alert-close">&times;</button> <!-- Close button -->
+    <img src="assets/firstime.jpg" alt="Alert Image" class="alert-image">
+    <p>Please signup or login to continue</p>
+    <button (click)="navigateToLogin()" class="alert-button">Login</button>
+    <button (click)="navigateToSignup()" class="alert-button">Sign Up</button>
+  </div>
+</div>
+
+
+          <!-- Dropdown Menu for Account (Positioned within Navbar) -->
+          <div *ngIf="showAccountMenu" class="account-dropdown">
+            <ul class="dropdown-list">
+              <li><a routerLink="/profile">Profile</a></li>
+              <li><a routerLink="/membership">Membership</a></li>
+              <li><a href="#" (click)="logout()">Logout</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+ <!-- Premium Feature Popup -->
+<div *ngIf="showPopup1" class="popup-overlay">
+  <div class="popup-content">
+    <p>This is a premium feature that provides personalized movie recommendations based on your mood. Upgrade to access it!</p>
+    <button class="button" (click)="navigateToMembership()">See Premium Options</button>
+    <button  class="button" (click)="closePopup()">Close</button>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" *ngIf="showAuthModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Access Restricted</h5>
+        <button type="button" class="btn-close" (click)="closeAuthModal()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Please sign up or log in to access this feature.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="navigateToSignup()">Sign Up</button>
+        <button type="button" class="btn btn-secondary" (click)="navigateToLogin()">Log In</button>
+        <button type="button" class="btn btn-tertiary" (click)="closeAuthModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

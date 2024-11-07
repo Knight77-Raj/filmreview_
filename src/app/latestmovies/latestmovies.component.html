@@ -1,0 +1,125 @@
+<div *ngIf="latestMoviesError" class="error-message">
+  {{ latestMoviesError }}
+</div>
+<h2 class="latest-movies-heading text-center" *ngIf="!latestMoviesError">Latest Movies in theatre</h2>
+<br>
+<div class="movies-grid">
+  <div *ngFor="let movie of movies | slice:0:visibleMoviesCount; let i = index" class="movie-item">
+    <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}" />
+    <h3>{{ movie.title }}</h3>
+    <p>Release date: {{ movie.release_date }}</p>
+    <button (click)="goToReviewForm(movie.title)">Add a Review</button>
+    <button (click)="bookTicket(movie)">Book Ticket</button>
+  </div>
+</div>
+
+<!-- Toggle button for "See More" and "See Less" -->
+<div class="toggle-button text-center" *ngIf="!latestMoviesError">
+  <button (click)="toggleMovies()">
+    {{ showAllMovies ? 'See Less' : 'See More' }}
+  </button>
+</div>
+
+<!-- netflix movies in india -->
+<!-- <div *ngIf="latestMoviesError" class="error-message">
+  {{ latestMoviesError }}
+</div> -->
+<div class="latest-movie-container-v2" *ngIf="!latestMoviesError" >
+  <h2 class="latest-movie-title">Latest Indian Movies on Netflix</h2>
+  <div class="movie-row-v2">
+    <ng-container *ngFor="let movie of visibleMovies">
+      <div class="movie-card-v2">
+        <a
+          [href]="'https://www.netflix.com/title/' + movie.id" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="movie-link"
+        >
+          <img
+            [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" 
+            alt="{{ movie.title }}"
+            class="movie-poster-v2"
+          />
+          <h3 class="movie-title-v2">{{ movie.title }}</h3>
+          <p class="movie-rating-v2">Rating: {{ movie.vote_average }}</p>
+          <p class="movie-release-date-v2">Release Date: {{ movie.release_date | date:'mediumDate' }}</p>
+        </a>
+        <button class="netflixreview" (click)="goToReviewForm(movie.title)" style="text-align: center;">Add a Review</button>
+        <button (click)="addToWatchlist(movie.title,movie.release_date,movie.vote_average)">Add to Watchlist</button>
+
+      </div>
+    </ng-container>
+    
+    
+  </div>
+  <button *ngIf="!showAll" (click)="handleSeeMore()" class="see-more-button-v2">See More</button>
+  <button *ngIf="showAll" (click)="handleSeeLess()" class="see-more-button-v2">See Less</button>
+</div>
+
+
+
+
+<!-- Movie Quotes Section -->
+<div *ngIf="quotes" class="quotes-section">
+  <h3>Movie Quotes by Al Pacino</h3>
+  <ul>
+    <li *ngFor="let quote of quotes">
+      {{ quote }}
+    </li>
+  </ul>
+</div>
+
+
+
+<!-- latestmovies.component.html -->
+<div class="container">
+  <h2>Top 10 Movies of the Week</h2>
+  <!-- <div class="movies-grid">
+    <div *ngFor="let movie of topMovies" class="movie-box">
+      <img [src]="movie.primaryImage?.imageUrl" alt="{{ movie.titleText.text }}">
+      <h3>{{ movie.titleText.text }}</h3>
+      <p>Rating: {{ movie.ratingsSummary.aggregateRating }}</p>
+      <p>Release Year: {{ movie.releaseYear.year }}</p>
+    </div>
+  </div> -->
+  
+</div>
+
+
+<!-- Trending news in the Bollywood -->
+
+<!-- <div class="latest-movies-container">
+  <h1 class="section-title">Trending news in the Bollywood</h1>
+
+  <div *ngIf="trendingMovies.length; else noMovies" class="movies-list">
+    <div *ngFor="let movie of displayedMovies" class="movie-card">
+      <img class="movie-thumbnail" [src]="movie.thumbnail" alt="{{ movie.title }}" />
+      <h2 class="movie-title" [innerHTML]="movie.title"></h2>
+      <a class="read-more-button" [href]="movie.url" target="_blank">Read More</a>
+    </div>
+  </div>
+
+  <ng-template #noMovies>
+    <p class="no-movies-message">No trending movies available at the moment.</p>
+  </ng-template>
+<br>
+  <button class="load-more-button"  (click)="loadMore()">➔ See More</button>
+</div> -->
+
+
+<!-- oscar winners -->
+<!-- <div class="oscar-winners-section">
+  <h2>Oscar Winners This Year</h2>
+  <div class="oscar-winner-grid">
+    <div *ngFor="let winner of oscarWinners" class="card">
+      <img [src]="winner.primaryNominees[0]?.imageUrl" alt="{{ winner.primaryNominees[0]?.name }}" class="winner-image">
+      <div class="card-body">
+        <h5>{{ winner.primaryNominees[0]?.name }}</h5>
+        <p>{{ winner.categoryName }}</p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+

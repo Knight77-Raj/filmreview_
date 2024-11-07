@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <h2>Review for {{ movieTitle }}</h2>
+  
+    <!-- Star Rating System -->
+    <div class="mb-4">
+      <label for="rating" class="form-label">Rating:</label>
+      <div class="star-rating" id="rating">
+        <i class="fas fa-star" (click)="setRating(1)" [ngClass]="{'selected': rating >= 1}"></i>
+        <i class="fas fa-star" (click)="setRating(2)" [ngClass]="{'selected': rating >= 2}"></i>
+        <i class="fas fa-star" (click)="setRating(3)" [ngClass]="{'selected': rating >= 3}"></i>
+        <i class="fas fa-star" (click)="setRating(4)" [ngClass]="{'selected': rating >= 4}"></i>
+        <i class="fas fa-star" (click)="setRating(5)" [ngClass]="{'selected': rating >= 5}"></i>
+      </div>
+    </div>
+  
+    <!-- Review Textarea -->
+    <div class="mb-4">
+      <label for="reviewText" class="form-label">Your Review:</label>
+      <textarea id="reviewText" rows="8" class="form-control" placeholder="Write your review here..."></textarea>
+    </div>
+  
+    <!-- Submit Button -->
+    <button class="btn btn-primary m-3" (click)="submitReview()">Submit</button>
+
+
+
+  </div>
+  

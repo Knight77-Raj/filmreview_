@@ -1,0 +1,132 @@
+<section class="vh-80" style="background-color: #f4f5f7;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-8 mb-4 mb-lg-0"> <!-- Increased width to 8 columns -->
+        <div class="card mb-3" style="border-radius: .5rem;">
+          <div class="row g-0">
+            <div class="col-md-4 gradient-custom text-center text-white" style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <img src="{{ profilePicture || existingData?.profilePicture || 'assets/user.png' }}" alt="Profile Picture" class="img-fluid my-5" style="width: 80px; border-radius: 50%;" />
+              <h5>{{ existingData?.name || 'User Name' }}</h5>
+              <p>Cinephile</p>
+              <i class="far fa-edit mb-5"></i>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+                  <h6>Profile Information</h6>
+                  <hr class="mt-0 mb-4">
+
+                  <!-- Name -->
+                  <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter your name" required />
+                  </div>
+
+                  <!-- Add Movie Section -->
+                  <div>
+                    <label for="movie">Add Movie:</label>
+                    <input id="movie" [formControl]="movieControl" type="text" class="form-control" placeholder="Enter a movie title">
+                    <button type="button" class="btn btn-primary mt-2" (click)="addMovie()">Add Movie</button>
+                  </div>
+
+                  <!-- Display Added Movies -->
+                  <div *ngIf="favoriteMovies.length > 0" class="movies-list mt-3">
+                    <h6>Movies Added:</h6>
+                    <ul class="list-group">
+                      <li *ngFor="let movie of favoriteMovies.controls; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ movie.value }}
+                        <button type="button" class="btn btn-danger btn-sm" (click)="removeMovie(i)">Remove</button>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Favorite Filmmakers -->
+                  <div class="form-group mt-3">
+                    <label for="filmmakers">Favorite Filmmakers:</label>
+                    <div formArrayName="favoriteFilmmakers">
+                      <div *ngFor="let filmmaker of favoriteFilmmakers.controls; let i = index">
+                        <input [formControlName]="i" class="form-control" placeholder="Filmmaker {{ i + 1 }}" required />
+                      </div>
+                    </div>
+                    <button type="button" class="btn btn-primary mt-2" (click)="addFilmmaker()">Add Filmmaker</button>
+                  </div>
+
+                  <!-- Profile Picture Upload -->
+                  <div class="form-group mt-3">
+                    <label for="profilePic">Profile Picture:</label>
+                    <input type="file" id="profilePic" (change)="onFileSelected($event)" class="form-control" />
+                  </div>
+
+                  <!-- Display the Profile Picture Preview -->
+                  <div *ngIf="profilePicture || existingData?.profilePicture" class="profile-pic-preview mt-3">
+                    <img [src]="profilePicture || existingData?.profilePicture" alt="Profile Picture" width="150px" height="150px" />
+                  </div>
+
+                  <!-- Submit Button -->
+                  <button type="submit" class="btn btn-success mt-4">Update Profile</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  html, body {
+    height: 50%;
+    margin: 0;
+  }
+  
+  .vh-100 {
+    min-height: calc(70vh - 70px); /* Adjust this based on footer height */
+    width: 100%; /* Use full width */
+  }
+  
+  .container {
+    max-width: 1000px; /* Increased max-width for better alignment */
+    width: 100%; /* Ensure the container takes full width */
+  }
+  
+  .card {
+    /* Removed max-height and overflow-y properties */
+    width: 100%; /* Set to full width */
+    margin: auto; /* Center the card within the container */
+    height: fit-content;
+  }
+  
+  .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    border: none;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    border: none;
+  }
+  
+  .list-group-item {
+    border: none;
+  }
+  
+  .list-group-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .profile-pic-preview img {
+    border-radius: 50%;
+    border: 2px solid #007bff;
+  }
+</style>

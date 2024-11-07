@@ -1,0 +1,51 @@
+.gradient-custom {
+  background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+}
+
+.form-control {
+  border: 1px solid #ced4da;
+  border-radius: 0.5rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+}
+
+.list-group-item {
+  border: none;
+}
+
+.list-group-item:hover {
+  background-color: #f8f9fa;
+}
+
+.profile-pic-preview img {
+  border-radius: 50%;
+  border: 2px solid #007bff;
+}
+.img-fluid{
+  border-radius:   0%;
+  border: 2px solid #007bff;
+}
+.success-snackbar {
+  background-color: #4caf50;
+  color: #fff;
+  text-align: center;
+}
+
+.error-snackbar {
+  background-color: #f44336;
+  color: #fff;
+  text-align: center;
+}

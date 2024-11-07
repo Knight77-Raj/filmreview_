@@ -1,0 +1,351 @@
+/* Ensure the dropdown stays within the navbar */
+.navbar {
+    position: fixed /* This ensures the dropdown is positioned relative to the navbar */
+  }
+  
+  /* Position the dropdown absolutely within the navbar */
+  .account-dropdown {
+    position: absolute;
+    top: 100%; /* Position just below the Account button */
+    right: 0; /* Align the dropdown with the right side of the navbar */
+    background-color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    z-index: 1000; /* Ensure it stays on top */
+  }
+  
+  /* Style for the dropdown items */
+  .dropdown-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dropdown-list li {
+    margin-bottom: 5px;
+  }
+  
+  .dropdown-list li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    display: block;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dropdown-list li a:hover {
+    background-color: #555;
+    border-radius: 4px;
+  }
+  
+  .account-dropdown {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-icon {
+    width: 40px; /* Set a fixed width */
+    height: 40px; /* Set a fixed height */
+    border-radius: 50%; /* Make it round */
+    object-fit: cover; /* Ensure it covers the area */
+    cursor: pointer; /* Change cursor to pointer for interactivity */
+  }
+  :root {
+    /* Light theme colors */
+    --background-color: #f9f9f9;
+    --border-color: #ccc;
+    --text-color: #333;
+  
+    /* Dark theme colors */
+    --dark-background-color: #333;
+    --dark-border-color: #666;
+    --dark-text-color: #f9f9f9;
+  }
+  
+  /* Light theme styles */
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  /* Dark theme styles */
+  body.dark-theme {
+    background-color: var(--dark-background-color);
+    color: var(--dark-text-color);
+  }
+  
+  /* for prompt css */
+
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .auth-alert {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    z-index: 1050;
+    max-width: 300px;
+  }
+  
+  .custom-alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+  }
+  
+  .custom-alert-box {
+    background: #ffffff;
+    padding: 30px 20px;
+    width: 320px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: slideDown 0.4s ease; /* Smooth slide-down animation */
+  }
+  
+  @keyframes slideDown {
+    0% {
+      transform: translateY(-20%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .custom-alert-box p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .alert-button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  .alert-button:hover {
+    background-color: #0056b3;
+  }
+  .alert-image {
+    width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 15px; /* Space between image and text */
+    border-radius: 5px;
+  }
+  
+  .alert-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 24px; /* Increase the font size for the close button */
+    color: #333; /* Color for the close button */
+    cursor: pointer;
+  }
+
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Darker background for better contrast */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 300px;
+    border: 3px solid #77f10d; /* Bright border color */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+
+h2 {
+    color: #ff4081; /* Bright pink for the heading */
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+p {
+    color: #333; /* Dark text for better readability */
+    margin: 10px 0; /* Space above and below paragraph */
+}
+
+.button {
+  background-color: #0e0ebe; /* Bright pink button color */
+  color: white; /* White text for contrast */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners for button */
+  padding: 10px 15px; /* Padding for button */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Transition for smooth hover effect */
+  margin: 5px 5px; /* Add vertical margin to create space between buttons */
+
+}
+
+.button:hover {
+  background-color: #e91e63; /* Slightly darker pink on hover */
+}
+
+
+/* Always show the pointer cursor */
+.nav-link {
+  cursor: pointer;
+}
+
+/* Visually indicate a non-clickable state without changing the cursor */
+.nav-link[routerLink="null"] {
+  color: gray; /* Grayed out text to indicate it's inactive */
+}
+
+/* Modal Overlay */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Darker semi-transparent background for elegance */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+/* Modal Dialog */
+.modal-dialog {
+  max-width: 450px; /* Reduced max width for a tighter design */
+  width: 90%; 
+  background-color: #ffffff; /* White background for contrast */
+  border-radius: 10px; /* More pronounced rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Softer, larger shadow for depth */
+  overflow: hidden; /* Prevent overflow of content */
+}
+
+/* Modal Content */
+.modal-content {
+  border: none; 
+}
+
+/* Modal Header */
+.modal-header {
+  background-color: #007bff; /* Bootstrap primary color for header */
+  color: white; /* Text color */
+  padding: 15px 20px; /* Increased padding for a more comfortable feel */
+  font-size: 1.5rem; /* Larger font size */
+  font-weight: 600; /* Bold font */
+  text-align: center; /* Center the header text */
+}
+
+/* Centering Header Title */
+.modal-header h5 {
+  flex: 1; /* Allow the title to take up available space */
+  margin: 0; /* Remove default margin */
+  font-size: large;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 20px; 
+  font-size: 1.1rem; 
+  line-height: 1.5; /* Improved readability */
+  color: #333; /* Darker text for better contrast */
+}
+
+/* Modal Footer */
+.modal-footer {
+  border-top: 1px solid #e9ecef; /* Subtle border for separation */
+  justify-content: space-between; 
+  padding: 10px 20px; /* Padding for footer */
+}
+
+/* Close Button */
+.btn-close {
+  background: none; 
+  border: none; 
+  font-size: 1.5rem; 
+  cursor: pointer; 
+  color: white; /* Close button color */
+}
+
+/* Button Styles */
+.btn {
+  padding: 10px 20px; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.btn-primary {
+  background-color: #28a745; /* Premium green color */
+  color: white; 
+}
+
+.btn-secondary {
+  background-color: #6c757d; 
+  color: white; 
+}
+.btn-tertiary {
+  background-color: #de2609; 
+  color: white; 
+}
+
+/* Button Hover Effects */
+.btn-primary:hover {
+  background-color: #218838; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268; 
+  transform: scale(1.05); 
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .modal-dialog {
+    width: 95%; 
+  }
+}

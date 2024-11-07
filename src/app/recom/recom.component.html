@@ -1,0 +1,44 @@
+<div class="container">
+    <h2>Get Hollywood Movie reccomendations by Genre</h2>
+    <form (ngSubmit)="etchHollywoodMoviesByGenre()">
+      <label for="genre">Select Genre:</label>
+      <select [(ngModel)]="selectedGenre" name="genre" required>
+        <option value="" disabled>Select a genre</option>
+        <option value="action">Action</option>
+        <option value="adventure">Adventure</option>
+        <option value="comedy">Comedy</option>
+        <option value="drama">Drama</option>
+        <option value="thriller">Thriller</option>
+        <option value="documentary">Documentary</option>
+        <option value="musical">Musical</option>
+        <option value="romance">Romance</option>
+        <option value="sport">Sport</option>
+        <option value="war">War</option>
+
+        <!-- Add more genres as needed -->
+      </select>
+      <button type="submit">Get Reccomendation</button>
+    </form>
+
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <div *ngIf="loading" class="loading-message">Getting your movie - hold on!</div>
+
+    <div *ngIf="hollywoodMovie" class="movie-card">
+      <h3>Hollywood Movie:</h3>
+      <h4>{{ hollywoodMovie.title }} ({{ hollywoodMovie.year }})</h4>
+      <img [src]="hollywoodMovie.image" alt="{{ hollywoodMovie.title }} Poster" />
+      <p>{{ hollywoodMovie.description }}</p>
+      <p>Rating: {{ hollywoodMovie.imdbRating }}</p>
+      <a [href]="hollywoodMovie.link" target="_blank">View on IMDb</a>
+      <button class="btn btn-info m-3" (click)="streaming()">Check Streaming Availability</button>
+      <button (click)="addToWatchlist( hollywoodMovie.title, hollywoodMovie.year,getNumericRating(hollywoodMovie.imdbRating))">Add to Watchlist</button>
+
+  
+    </div>
+          <!-- Display movie streaming options after search -->
+          <div *ngIf="loading2" class="loading-message"><p>Checking...Please wait!</p></div>
+  <div *ngIf="streamingDetails">
+    <p style="text-align: center;">{{ streamingDetails }}</p>
+  </div>
+</div>

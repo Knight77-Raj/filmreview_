@@ -1,0 +1,64 @@
+.review-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+}
+
+.col {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+
+.all-reviews {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+.user-review {
+  flex: 1;
+  margin: 0 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  min-width: 250px;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-pic {
+  width: 50px; /* Adjust width as needed */
+  height: 50px; /* Adjust height as needed */
+  border-radius: 50%; /* Makes the image circular */
+  margin-right: 10px; /* Space between the image and username */
+  object-fit: cover; /* Ensures image fills the circular area */
+}
+
+.user-review h4 {
+  margin: 0;
+}
+
+.reviews {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.review-item {
+  margin-bottom: 5px;
+}

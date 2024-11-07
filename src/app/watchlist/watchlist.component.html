@@ -1,0 +1,18 @@
+<!-- watchlist.component.html -->
+<div class="watchlist-container">
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <h1>Your Watchlist</h1>
+  <ul *ngIf="watchlist.length > 0">
+    <li *ngFor="let movie of watchlist" class="movie-card">
+      <div class="movie-info">
+        <h3>{{ movie.movieTitle }}</h3>
+        <p>Rating: {{ movie.movieRating }}</p>
+        <p>Release Year: {{ movie.movieYear }}</p>
+      </div>
+      <div class="button-container">
+        <button (click)="removeFromWatchlist(movie.movieTitle)">Delete</button>
+      </div>
+    </li>
+  </ul>
+  <div *ngIf="watchlist.length === 0">No movies in your watchlist.</div>
+</div>

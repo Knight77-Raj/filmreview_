@@ -1,0 +1,20 @@
+/* Set up the page container to take up the full viewport height */
+.page-container {
+    display: grid;
+    grid-template-rows: 1fr auto; /* Main content fills, footer stays at bottom */
+    min-height: 100vh;
+}
+
+/* Ensure the main content can expand */
+.content-wrap {
+    padding-bottom: 20px; /* Optional, adds spacing above footer */
+}
+
+/* Footer styling */
+app-footer {
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    color: #333;
+}

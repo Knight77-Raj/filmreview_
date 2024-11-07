@@ -1,0 +1,17 @@
+<h3>See what others are watching</h3>
+<br>
+<div class="all-reviews">
+  <div *ngFor="let user of (isLoggedIn ? users : users.slice(0, 4))" class="user-review">
+    <div class="review-header">
+      <img [src]="user.profilePicture" alt="Profile picture of {{ user.userName }}" class="profile-pic">
+      <h4>Reviews by {{ user.userName }}</h4>
+    </div>
+    
+    <ul class="reviews">
+      <li *ngFor="let review of user.reviews.slice(-2)" class="review-item">
+        <strong>{{ review.movieTitle }}:</strong> {{ review.rating }} stars - {{ review.reviewText }}
+      </li>
+    </ul>
+    <p *ngIf="user.reviews.length === 0">No reviews to display.</p>
+  </div>
+</div>
